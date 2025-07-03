@@ -1,5 +1,5 @@
 import DescCard from "../props/DescCard";
-import CardInAbout from "./CardInAbout";
+import CardInAbout from "./Programs";
 import { UilArrowRight } from "@iconscout/react-unicons";
 
 function About() {
@@ -7,41 +7,37 @@ function About() {
     <>
       <CardInAbout />
 
-      <div className="p-8 w-full flex flex-col justify-center items-center space-y-4 md:flex-row">
-        <DescCard>
-          <h1 className="font-bold text-base">Technologies & Systems</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-            numquam molestias sequi inventore adipisci. Perferendis deserunt
-            enim, libero, asperiores pariatur repellat ratione id voluptas minus
-            itaque illo, aut nulla quibusdam.
-          </p>
-        </DescCard>
-        <DescCard>
-          <h1 className="font-bold text-base">Technologies & Systems</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-            numquam molestias sequi inventore adipisci. Perferendis deserunt
-            enim, libero, asperiores pariatur repellat ratione id voluptas minus
-            itaque illo, aut nulla quibusdam.
-          </p>
-        </DescCard>
-        <DescCard>
-          <h1 className="font-bold text-base">Technologies & Systems</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-            numquam molestias sequi inventore adipisci. Perferendis deserunt
-            enim, libero, asperiores pariatur repellat ratione id voluptas minus
-            itaque illo, aut nulla quibusdam.
-          </p>
-        </DescCard>
+      <div className="w-full flex justify-center">
+        <div className="p-8 w-full max-w-6xl flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 mt-4 items-stretch">
+          <DescCard className="flex-1">
+            <h1 className="font-bold text-base">Technologies & Systems</h1>
+            <p>
+              All incoming messages are filtered and routed to the right person
+              or department instantly. Say goodbye to missed calls and confusion
+              at the front desk.
+            </p>
+          </DescCard>
+          <DescCard className="flex-1">
+            <h1 className="font-bold text-base">Technologies & Systems</h1>
+            <p>
+              Our virtual receptionist ensures every call is answered
+              professionally, 24/7. Ideal for businesses looking to improve
+              client communication without hiring full-time staff.
+            </p>
+          </DescCard>
+          <DescCard className="flex-1">
+            <h1 className="font-bold text-base">Technologies & Systems</h1>
+            <p>
+              Let our system manage your bookings efficiently. Clients can
+              schedule, reschedule, or cancel appointments anytime—no human
+              interaction needed.
+            </p>
+          </DescCard>
+        </div>
       </div>
 
       <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8 p-8 max-w-6xl mx-auto text-center md:text-left">
-        <img
-          src="./src/assets/about.jpeg"
-          className="rounded-sm h-[200px]"
-        />
+        <img src="./src/assets/about.jpeg" className="rounded-sm h-[200px]" />
         <div className="flex flex-col space-y-8">
           <h1 className="text-2xl font-bold">
             Superchange your business with virtual Receptionist

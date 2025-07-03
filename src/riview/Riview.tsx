@@ -1,79 +1,106 @@
-import { UilArrowRight, UilArrowLeft } from "@iconscout/react-unicons";
+import { useRef } from "react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
+
+
+
+
+type Review = {
+  text: string;
+  name: string;
+  role: string;
+  image: string;
+};
+
 function Riview() {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -350, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 350, behavior: "smooth" });
+    }
+  };
+
+  const reviews: Review[] = [
+    {
+      text:
+        "From start to finish, everything was handled efficiently. The staff was friendly and attentive, making the whole experience enjoyable.",
+      name: "Sammdo",
+      role: "FrontEnd Engineer",
+      image: "src/assets/profileRiview/pfp1.jpg",
+    },
+    {
+      text:
+        "This exceeded my expectations. The process was smooth, and the final result was better than I imagined.",
+      name: "Sarah Lim",
+      role: "UI Designer",
+      image: "src/assets/profileRiview/pfp2.jpg",
+    },
+    {
+      text:
+        "I had a wonderful experience with this service. The team was incredibly responsive and made sure every detail was taken care of.",
+      name: "Michael Chen",
+      role: "Product Manager",
+      image: "src/assets/profileRiview/pfp3.jpg",
+    },
+    {
+      text:
+        "I had a wonderful experience with this service. The team was incredibly responsive and made sure every detail was taken care of.",
+      name: "Michael Chen",
+      role: "Product Manager",
+      image: "src/assets/profileRiview/pfp4.jpg",
+    },
+  ];
+
   return (
-    <>
-      <div className="w-full p-8 flex flex-col overflow-x-auto">
-        <h1 className="text-sm font-bold text-[#5EABD6]">Riview</h1>
-        <div className="flex flex-row justify-between">
-          <h1 className="text-lg font-bold">What are they saying?</h1>
-          <span className="flex flex-row space-x-4">
-            <UilArrowLeft
-              className="bg-blue-100 rounded-full"
-              size="32"
-              color="black"
-            />
-            <UilArrowRight
-              className="bg-blue-300 rounded-full"
-              size="32"
-              color="black"
-            />
-          </span>
-        </div>
-        <div className="w-full mt-8 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-x-2">
-          <div className="w-full flex flex-col py-4 px-2 bg-white shadow-2xl items-start text-start">
-            <p className="max-w-md">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere,
-              tempora quos totam voluptatibus laudantium nesciunt delectus,
-              repudiandae, eius commodi impedit suscipit illo? Vitae, tempora et
-              nisi soluta iusto saepe consequatur!
-            </p>
+    <div className="w-full p-8 flex flex-col">
+      <h1 className="text-sm font-bold text-[#5EABD6]">Review</h1>
 
-            <div className="flex flex-row space-x-4 mt-4 items-center">
-              <img src="src/assets/google.webp" className="h-[40px]" />
-
-              <div className="flex flex-col items-start">
-                <h1 className="font-bold text-lg">Sammdo</h1>
-                <p className="font-light">FrontEnd Engineer</p>
-              </div>
-            </div>
-          </div>
-          <div className="w-full flex flex-col py-4 px-2 bg-white shadow-2xl items-start text-start">
-            <p className="max-w-md">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere,
-              tempora quos totam voluptatibus laudantium nesciunt delectus,
-              repudiandae, eius commodi impedit suscipit illo? Vitae, tempora et
-              nisi soluta iusto saepe consequatur!
-            </p>
-
-            <div className="flex flex-row space-x-4 mt-4 items-center">
-              <img src="src/assets/google.webp" className="h-[40px]" />
-
-              <div className="flex flex-col items-start">
-                <h1 className="font-bold text-lg">Sammdo</h1>
-                <p className="font-light">FrontEnd Engineer</p>
-              </div>
-            </div>
-          </div>
-          <div className="w-full flex flex-col py-4 px-2 bg-white shadow-2xl items-start text-start">
-            <p className="max-w-md">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere,
-              tempora quos totam voluptatibus laudantium nesciunt delectus,
-              repudiandae, eius commodi impedit suscipit illo? Vitae, tempora et
-              nisi soluta iusto saepe consequatur!
-            </p>
-
-            <div className="flex flex-row space-x-4 mt-4 items-center">
-              <img src="src/assets/google.webp" className="h-[40px]" />
-
-              <div className="flex flex-col items-start">
-                <h1 className="font-bold text-lg">Sammdo</h1>
-                <p className="font-light">FrontEnd Engineer</p>
-              </div>
-            </div>
-          </div>
+      <div className="flex flex-row justify-between items-center mt-2">
+        <h1 className="text-lg font-bold">What are they saying?</h1>
+        <div className="flex flex-row space-x-4">
+          <ArrowLeft
+            onClick={scrollLeft}
+            className="bg-blue-100 rounded-full cursor-pointer p-1"
+            size="28"
+            color="black"
+          />
+          <ArrowRight
+            onClick={scrollRight}
+            className="bg-blue-300 rounded-full cursor-pointer p-1"
+            size="28"
+            color="black"
+          />
         </div>
       </div>
-    </>
+
+      <div
+        ref={scrollRef}
+        className="w-full mt-8 flex flex-row overflow-x-auto space-x-4 pb-4 scroll-smooth"
+      >
+        {reviews.map((item, index) => (
+          <div
+            key={index}
+            className="min-w-[300px] md:min-w-[350px] h-full md:h-[200px] flex flex-col justify-between py-4 px-4 bg-white shadow-2xl rounded"
+          >
+            <p className="mb-4">{item.text}</p>
+            <div className="flex flex-row space-x-4 items-center">
+              <img src={item.image} alt={item.name} className="h-[40px] rounded-full" />
+              <div className="flex flex-col items-start">
+                <h1 className="font-bold text-lg">{item.name}</h1>
+                <p className="font-light">{item.role}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
+
 export default Riview;
