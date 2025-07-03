@@ -2,12 +2,13 @@ import type { ReactNode } from "react";
 
 type buttonProps = {
   children: ReactNode;
+  className? : string
 }
 
-function Button({ children }: buttonProps) {
+function Button({ children, className }: buttonProps) {
   return (
     <>
-      <button className="bg-[#5EABD6] px-4 py-2 rounded-sm text-white font-semibold">
+      <button className={`bg-blue-500 px-4 py-2 rounded-sm font-semibold ${className}`}>
         {children}
       </button>
     </>

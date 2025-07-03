@@ -1,6 +1,33 @@
 import Card from "../props/Card";
 
 function Services() {
+  type Services = {
+    img: string;
+    title: string;
+    description: string;
+  };
+
+  const services: Services[] = [
+    {
+      img: "src/assets/headphones.png",
+      title: "Virtual Development",
+      description:
+        "Refers to the creation, management, and optimization of digital solutions — such as websites, mobile apps, cloud platforms, and virtual environments — without requiring physical infrastructure.",
+    },
+    {
+      img: "src/assets/chat.png",
+      title: "Live text support",
+      description:
+        "refers to the creation, management, and optimization of digital solutions — such as websites, mobile apps, cloud platforms, and virtual environments — without requiring physical infrastructure.",
+    },
+    {
+      img: "src/assets/schedule.png",
+      title: "Scheduling",
+      description:
+        "refers to the creation, management, and optimization of digital solutions — such as websites, mobile apps, cloud platforms, and virtual environments — without requiring physical infrastructure.",
+    },
+  ];
+
   return (
     <>
       <div className="w-full p-8 flex flex-col">
@@ -14,48 +41,16 @@ function Services() {
           efficiency. Whether you need virtual receptionists, customer support,
           or business consulting — we’ve got you covered.
         </p>
-
         <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 mt-4 items-stretch">
-          <Card>
-            <img src="src/assets/headphones.png" width={64} />
-            <div className="flex flex-col justify-center items-start">
-              <h1 className="text-lg font-bold space-y-4 mt-4">
-                Virtual Development
-              </h1>
-              <p className="mt-2">
-                refers to the creation, management, and optimization of digital
-                solutions — such as websites, mobile apps, cloud platforms, and
-                virtual environments — without requiring physical
-                infrastructure.
-              </p>
-            </div>
-          </Card>
-          <Card>
-            <img src="src/assets/chat.png" width={64} />
-            <div className="flex flex-col justify-center items-start">
-              <h1 className="text-lg font-bold space-y-4 mt-4">
-                Live text support
-              </h1>
-              <p className="mt-2">
-                refers to the creation, management, and optimization of digital
-                solutions — such as websites, mobile apps, cloud platforms, and
-                virtual environments — without requiring physical
-                infrastructure.
-              </p>
-            </div>
-          </Card>
-          <Card>
-            <img src="src/assets/schedule.png" width={64} />
-            <div className="flex flex-col justify-center items-start">
-              <h1 className="text-lg font-bold space-y-4 mt-4">Scheduling</h1>
-              <p className="mt-2">
-                refers to the creation, management, and optimization of digital
-                solutions — such as websites, mobile apps, cloud platforms, and
-                virtual environments — without requiring physical
-                infrastructure.
-              </p>
-            </div>
-          </Card>
+          {services.map((service, index) => (
+            <Card key={index}>
+              <img src={service.img} alt={service.title} width={64} />
+              <div className="flex flex-col justify-center items-start">
+                <h1 className="text-lg font-bold mt-4">{service.title}</h1>
+                <p className="mt-2">{service.description}</p>
+              </div>
+            </Card>
+          ))}
         </div>
       </div>
     </>

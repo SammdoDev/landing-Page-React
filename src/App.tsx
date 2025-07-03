@@ -1,10 +1,11 @@
 import "./App.css";
 import About from "./About/About";
-import Hero from "./pages/hero";
-import Navbar from "./navbar/Navbar";
+import Hero from "./pages/Header";
+import Navbar from "./pages/Navbar";
 import Services from "./pages/Services";
-import Integrations from "./integrations/Integrations";
-import Riview from "./riview/Riview";
+import Integrations from "./pages/Integrations";
+import Riview from "./pages/Riview";
+import Footer from "./pages/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <About />
         <Integrations />
         <Riview />
+        <Footer/>
       </div>
     </>
   );
